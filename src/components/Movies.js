@@ -3,15 +3,17 @@ import { movies } from "../data";
 
 function Movies() {
   const flicks = movies.map((movie) => (
-    <div>
-      <h3 key={movie.title}>Name: {movie.title}</h3>
+    <div key={movie.title}>
+      <h3>Name: {movie.title}</h3>
       <p>Time: {movie.time}</p>
       <p>Genres:</p>
         <ul>
-          <li>{movie.genres}</li>
+          {movie.genres.map((genre) => (
+            <li key={genre}>{genre}</li>
+          ))}
         </ul>
     </div>
-  ))
+  ));
 
   return (
     <div>
@@ -19,6 +21,6 @@ function Movies() {
       {flicks}
     </div>
   );
-}
+};
 
 export default Movies;
